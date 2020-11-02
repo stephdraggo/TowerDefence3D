@@ -22,14 +22,15 @@ namespace TowerDefence.Menus
             "Game scene: Options Menu, Pause Menu, HUD, Win Screen, Lose Screen.")]
         private GameObject[] panels;
 
-
-
         [Tooltip("Side panels in game scene, leave empty if menu scene.")]
         private GameObject[] sidePanels;
 
         #endregion
         #region Properties
-
+        //in case we want to access these from another script
+        public bool GameSceneActive { get => gameSceneActive; }
+        public GameObject[] Panels { get => panels; }
+        public GameObject[] SidePanels { get => sidePanels; }
         #endregion
         #region Start
         void Start()
@@ -76,6 +77,7 @@ namespace TowerDefence.Menus
             }
         }
         #endregion
+        #region Functions
         #region Shared Functions
         #region show one panel, waiting on save function
         /// <summary>
@@ -197,6 +199,7 @@ namespace TowerDefence.Menus
 
 
 
+        #endregion
         #endregion
     }
 }
