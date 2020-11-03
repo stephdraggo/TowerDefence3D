@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private EnemyDeath onDeath = new EnemyDeath();
 
-    private EnemyManager enemy;
+    public EnemyManager enemy;
 
     //private Player player;
 

@@ -215,16 +215,19 @@ namespace TowerDefense.Towers
             float closeDist = float.MaxValue;
             Enemy closest = null;
 
-            foreach (Enemy enemy in _enemies)
+            if (_enemies != null) //if there are enemies in range
             {
-                float distToEnemy = Vector3.Distance(enemy.transform.position, transform.position);
-
-                // if the enemy is closer then the current enemy 
-                // make the new closest enemy the closest
-                if (distToEnemy < closeDist)
+                foreach (Enemy enemy in _enemies)
                 {
-                    closeDist = distToEnemy;
-                    closest = enemy;
+                    float distToEnemy = Vector3.Distance(enemy.transform.position, transform.position);
+
+                    // if the enemy is closer then the current enemy 
+                    // make the new closest enemy the closest
+                    if (distToEnemy < closeDist)
+                    {
+                        closeDist = distToEnemy;
+                        closest = enemy;
+                    }
                 }
             }
             return closest;
@@ -245,7 +248,7 @@ namespace TowerDefense.Towers
         {
             DisplayTowerRange();
             FireWhenReady();
-            target();
+            Target();
         }
     }
 }                          

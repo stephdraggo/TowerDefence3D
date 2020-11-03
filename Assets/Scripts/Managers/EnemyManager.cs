@@ -20,6 +20,9 @@ namespace TowerDefense.Managers
         {
             // spawns a new enemy
             GameObject newEnemy = Instantiate(enemyPrefab, _spawner.position, enemyPrefab.transform.rotation);
+
+            newEnemy.GetComponent<Enemy>().enemy = this; //give the enemy a reference to this enemy manager
+
             // adds the spawned enemy to the alive enemy list
             aliveEnemies.Add(newEnemy.GetComponent<Enemy>());
         }
@@ -51,19 +54,22 @@ namespace TowerDefense.Managers
         {
             // making a list of close enemies
             List<Enemy> closeEnemies = new List<Enemy>();
-            // for each enemy in the alive enemy list 
-            foreach (Enemy enemy in aliveEnemies)
+
+            if (aliveEnemies != null) //if there are enemies in scene
             {
-                // get the distance between a and b (enemy and target)
-                float dist = Vector3.Distance(enemy.transform.position, _target.position);
-                // if the distance is less then the max range and great then the min range
-                if (dist < _maxRange && dist > _minRange)
+                // for each enemy in the alive enemy list 
+                foreach (Enemy enemy in aliveEnemies)
                 {
-                    // enemy is added to the list
-                    closeEnemies.Add(enemy);
+                    // get the distance between a and b (enemy and target)
+                    float dist = Vector3.Distance(enemy.transform.position, _target.position);
+                    // if the distance is less then the max range and great then the min range
+                    if (dist < _maxRange && dist > _minRange)
+                    {
+                        // enemy is added to the list
+                        closeEnemies.Add(enemy);
+                    }
                 }
             }
-            
             // converts list to array
             return closeEnemies.ToArray();
         }

@@ -34,7 +34,11 @@ public class AssualtTower : BaseTower
     protected override void Update()
     {
         base.Update();
-        AimAndFire();
+
+        if (TargetedEnemy != null) //if there is an enemy being targeted
+        {
+            AimAndFire();
+        }
     }
 
     private void RenderBullet(Transform start)
