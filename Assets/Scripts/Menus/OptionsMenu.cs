@@ -45,7 +45,7 @@ namespace TowerDefence.Menus
             QualitySettings.SetQualityLevel(i);
         }
         #endregion
-        #region audio, waiting on sound
+        #region audio done
         /// <summary>
         /// Set music volume from slider.
         /// </summary>
