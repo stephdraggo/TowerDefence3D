@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 73e5640ca655af6478f46c822ef6705c
+=======
+guid: 3b8041f15c98a9447a801356d209a37c
+>>>>>>> pathfinding
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
