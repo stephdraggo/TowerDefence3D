@@ -7,11 +7,13 @@ namespace TowerDefense.Managers
     public class EnemyManager : MonoBehaviour
     {
         public static EnemyManager instance = null;
+        [SerializeField]
+        private Flammer flame;
 
         [SerializeField]
         private GameObject enemyPrefab;
 
-        private List<Enemy> aliveEnemies = new List<Enemy>();
+        public List<Enemy> aliveEnemies = new List<Enemy>();
         
         /// <summary>
         /// Spawns an Enemy gameObject then adds that enemy to the alive enemies lists
@@ -40,6 +42,7 @@ namespace TowerDefense.Managers
                 Destroy(_enemy.gameObject);
                 // removes enemy from list
                 aliveEnemies.RemoveAt(index);
+                
             }
         }
 

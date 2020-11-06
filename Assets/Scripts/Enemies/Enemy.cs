@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
 
     [Header("GeneralStats")]
     [SerializeField, Tooltip("How fast the enemy can move")]
-    private float speed = 1;
+    private float speed = 0.5f;
     [SerializeField, Tooltip("The amount of health the enemy has")]
     private float health = 1;
 
@@ -32,13 +32,16 @@ public class Enemy : MonoBehaviour
 
     //private Player player;
 
-    public void Damage(float _damage)
+    public bool Damage(float _damage)
     {
         health -= _damage;
         if (health <= 0)
         {
             Die();
+
+            return true;
         }
+        return false;
     }
 
     public void Die()
@@ -56,9 +59,14 @@ public class Enemy : MonoBehaviour
 
     }
 
+    private void Move()
+    {
+        transform.Translate(transform.right * -speed);
+    }
+
     private void Update()
     {
-        
+        Move();
     }
 
 

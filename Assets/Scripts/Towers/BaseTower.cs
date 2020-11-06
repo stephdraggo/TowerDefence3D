@@ -36,7 +36,7 @@ namespace TowerDefense.Towers
             {
                 string display = string.Format("Name: {0} Cost: {1}\n", TowerName, Cost.ToString());
                 display += Description + "\n";
-                display += string.Format("Minimum Range: {0}, Maximum Range: {1}, Damage: {2}", minRange.ToString(), maxRange.ToString(), damage.ToString());
+                display += string.Format("Minimum Range: {0}, Maximum Range: {1}, Damage: {2}", minRange.ToString(), MaxRange.ToString(), damage.ToString());
                 return display;
             }
         }
@@ -62,7 +62,7 @@ namespace TowerDefense.Towers
             }
         }
 
-        private float MaxRange
+        protected float MaxRange
         {
             get
             {
@@ -93,15 +93,15 @@ namespace TowerDefense.Towers
         #region Attack
         [Header("Tower Attack Stats")]
         [SerializeField, Min(0.1f)]
-        private float damage = 1;
+        protected float damage = 1;
         [SerializeField, Min(0.1f)]
-        private float minRange = 1;
+        protected float minRange = 1;
         [SerializeField]
-        private float maxRange = 2;
+        protected float maxRange = 2;
         [SerializeField]
         private float rangeUpgrade = 1;
         [SerializeField, Min(0.1f)]
-        private float fireRate = 1;
+        protected float fireRate = 2;
         #endregion
 
         #region Experience
@@ -114,20 +114,17 @@ namespace TowerDefense.Towers
         private float xpScale = 1;
         #endregion
 
-        [SerializeField, Tooltip("Displays the towers max range")]
-        private Transform towerMaxRange;
-        [SerializeField, Tooltip("Displays the towers min range")]
-        private Transform towerMinRange;
+
         private int level = 1;
         private float xp = 0;
 
         [SerializeField]
-        private Enemy target = null;
-        private float currentTime = 0;
+        protected Enemy target = null;
+        protected float currentTime = 0;
         #endregion
 
         #region AbstractMethods
-        //protected abstract void RenderAttackVisuals();
+        protected abstract void RenderAttackVisuals();
         //protected abstract void RenderLevelUpVisuals();
 
         #endregion
@@ -168,17 +165,17 @@ namespace TowerDefense.Towers
         #endregion
 
         #region TowerAttackMethods
-        private void Fire()
+        protected virtual void Fire()
         {
             if (target != null)
             {
                 target.Damage(damage);
 
-                //RenderAttackVisuals();
+                RenderAttackVisuals();
             }
         }
 
-        private void FireWhenReady()
+        protected virtual void FireWhenReady()
         {
             if (target != null)
             {
@@ -188,7 +185,7 @@ namespace TowerDefense.Towers
                 }
                 else
                 {
-                    currentTime = 0;   
+                    currentTime = 0;
                     Fire();
                 }
             }
@@ -196,13 +193,20 @@ namespace TowerDefense.Towers
         #endregion
 
         #region EnemyTargettingMethods
-        private void Target()
+        protected virtual void Target()
         {
             // get enemies within range
             Enemy[] closeEnemies = EnemyManager.instance.GetClosestEnemies(transform, MaxRange, minRange);
 
             // sets the target as the closest enemy
             target = GetClosestEnemy(closeEnemies);
+            if (target != null)
+            {
+                if (Vector3.Distance(target.transform.position, transform.position) > MaxRange)
+                {
+                    target = null;
+                }
+            }
         }
 
         /// <summary>
@@ -235,18 +239,16 @@ namespace TowerDefense.Towers
 
         #endregion
 
-        /// <summary>
-        /// used for displaying the range of the tower
-        /// </summary>
-        public void DisplayTowerRange()
+
+
+        public void SetGlobalScale(Transform transform2, Vector3 globalScale)
         {
-            towerMaxRange.transform.localScale = Vector3.one * MaxRange;
-            towerMinRange.transform.localScale = Vector3.one * minRange;
+            transform2.localScale = Vector3.one;
+            transform2.localScale = new Vector3(globalScale.x / transform2.lossyScale.x, globalScale.y / transform2.lossyScale.y, globalScale.z / transform2.lossyScale.z);
         }
 
         protected virtual void Update()
         {
-            DisplayTowerRange();
             FireWhenReady();
             Target();
         }

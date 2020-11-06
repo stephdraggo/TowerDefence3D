@@ -12,6 +12,10 @@ public class AssualtTower : BaseTower
     private LineRenderer bullet;
     [SerializeField]
     private Transform barrel;
+    [SerializeField, Tooltip("Displays the towers max range")]
+    private Transform towerMaxRange;
+    [SerializeField, Tooltip("Displays the towers min range")]
+    private Transform towerMinRange;
 
 
     [SerializeField]
@@ -24,8 +28,17 @@ public class AssualtTower : BaseTower
         // rotates the turret to look at the direction of the target
         turret.rotation = Quaternion.LookRotation(direction);
     }
+    protected override void RenderAttackVisuals()
+    {
+        if (currentTime >= fireRate)
+        {
+            bullet.positionCount = 0;
+        }
 
-   
+        RenderBullet(barrel);
+    }
+
+
     protected void Start()
     {
         bullet.positionCount = 0;
@@ -34,11 +47,21 @@ public class AssualtTower : BaseTower
     protected override void Update()
     {
         base.Update();
+        DisplayTowerRange();
 
         if (TargetedEnemy != null) //if there is an enemy being targeted
         {
             AimAndFire();
         }
+    }
+
+    /// <summary>
+    /// used for displaying the range of the tower
+    /// </summary>
+    public void DisplayTowerRange()
+    {
+        SetGlobalScale(towerMaxRange.transform, Vector3.one * MaxRange * 2);
+        SetGlobalScale(towerMinRange.transform, Vector3.one * minRange * 2);
     }
 
     private void RenderBullet(Transform start)
