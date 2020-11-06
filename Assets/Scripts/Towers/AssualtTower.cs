@@ -17,6 +17,9 @@ public class AssualtTower : BaseTower
     [SerializeField, Tooltip("Displays the towers min range")]
     private Transform towerMinRange;
 
+    [SerializeField]
+    private float lineTime;
+    private float maxLineTime = 0.2f;
 
     [SerializeField]
     private float fire;
@@ -48,10 +51,14 @@ public class AssualtTower : BaseTower
     {
         base.Update();
         DisplayTowerRange();
-
         if (TargetedEnemy != null) //if there is an enemy being targeted
         {
             AimAndFire();
+        }
+
+        if (isFiring == false)
+        {
+            bullet.positionCount = 0;
         }
     }
 

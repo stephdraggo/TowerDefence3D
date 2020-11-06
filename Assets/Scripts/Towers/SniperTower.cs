@@ -38,14 +38,9 @@ public class SniperTower : BaseTower
             AimAndFire();
         }
 
-        if (lineTime <= 0.2)
+        if (isFiring == false)
         {
-            lineTime += Time.deltaTime;
-            if (lineTime >= maxLineTime)
-            {
-                bullet.positionCount = 0;
-                lineTime = maxLineTime;
-            }
+            bullet.positionCount = 0;
         }
     }
 

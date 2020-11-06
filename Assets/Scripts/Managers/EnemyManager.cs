@@ -25,6 +25,9 @@ namespace TowerDefense.Managers
 
             newEnemy.GetComponent<Enemy>().enemy = this; //give the enemy a reference to this enemy manager
 
+            // sets the parent of the objects
+            newEnemy.transform.SetParent(_spawner);
+
             // adds the spawned enemy to the alive enemy list
             aliveEnemies.Add(newEnemy.GetComponent<Enemy>());
         }

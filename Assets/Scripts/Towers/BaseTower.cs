@@ -117,6 +117,8 @@ namespace TowerDefense.Towers
 
         private int level = 1;
         private float xp = 0;
+        [SerializeField]
+        protected bool isFiring = false;
 
         [SerializeField]
         protected Enemy target = null;
@@ -170,21 +172,23 @@ namespace TowerDefense.Towers
             if (target != null)
             {
                 target.Damage(damage);
-
                 RenderAttackVisuals();
             }
         }
 
         protected virtual void FireWhenReady()
         {
+            isFiring = false;
             if (target != null)
             {
                 if(currentTime < fireRate)
                 {
                     currentTime += Time.deltaTime;
+                    
                 }
                 else
                 {
+                    isFiring = true;
                     currentTime = 0;
                     Fire();
                 }
