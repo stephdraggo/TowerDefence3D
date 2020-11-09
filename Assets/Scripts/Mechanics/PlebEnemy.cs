@@ -6,8 +6,11 @@ namespace TowerDefence.Mechanics.Enemies
 {
     public class PlebEnemy : Enemy
     {
-        void Start()
+        [SerializeField] private float typeSpeed = 1f;
+
+        private void Awake()
         {
+            speed = typeSpeed;
             //assign new stat values here
         }
 
