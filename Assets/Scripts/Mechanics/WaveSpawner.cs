@@ -10,9 +10,9 @@ namespace TowerDefence.Mechanics.Spawning
         #region Variables
         [SerializeField, Min(0)] private int waveNumber, totalWaves, plebInWave, fastInWave, tankInWave;
 
-        [SerializeField] private float lengthOfWave,localSpawnRate;
+        [SerializeField] private float lengthOfWave, localSpawnRate;
 
-        [SerializeField,Tooltip("0: pleb, 1: fast, 2: tank")] 
+        [SerializeField, Tooltip("0: pleb, 1: fast, 2: tank")]
         private GameObject[] enemyPrefabs;
 
         private bool waveReady = false;
@@ -53,7 +53,7 @@ namespace TowerDefence.Mechanics.Spawning
 
                 waveNumber++;
             }
-            
+
 
 
             //start wave (button?)
@@ -69,21 +69,26 @@ namespace TowerDefence.Mechanics.Spawning
         }
         private void WaveContents()
         {
-            //on easy
+            #region base numbers by difficulty
+            //base easy values
             int pBase = 5;
             int fBase = 2;
             int tBase = 1;
 
-            //on medium
-            //int pBase = 7;
-            //int fBase = 4;
-            //int tBase = 2;
-
-            //on hard
-            //int pBase = 10;
-            //int fBase = 8;
-            //int tBase = 4;
-
+            if (GameManager.gameDifficulty == GameDifficulty.Medium)
+            {
+                pBase = 7;
+                fBase = 4;
+                tBase = 2;
+            }
+            else if (GameManager.gameDifficulty == GameDifficulty.Hard)
+            {
+                pBase = 10;
+                fBase = 8;
+                tBase = 4;
+            }
+            #endregion
+           
             //add to spawnables count according to wave number
             plebInWave += pBase * (waveNumber + 1);
             if (waveNumber >= 1)
