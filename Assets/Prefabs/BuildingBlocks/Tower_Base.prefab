@@ -12,7 +12,11 @@ GameObject:
   - component: {fileID: 155149877579464549}
   - component: {fileID: 5558860227948971399}
   m_Layer: 0
+<<<<<<< Updated upstream
   m_Name: BasePlatform
+=======
+  m_Name: Base
+>>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -17,6 +17,7 @@ public class Spawner : MonoBehaviour
     private float spawnRate;
 
     private float currentTime = 0;
+    [SerializeField]
     private EnemyManager enemyManager;
 
     private void Start()
