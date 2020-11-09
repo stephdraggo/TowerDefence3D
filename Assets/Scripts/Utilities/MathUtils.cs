@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TowerDefence.Utilities
+namespace TowerDefense.Utilities
 {
     public class MathUtils
     {

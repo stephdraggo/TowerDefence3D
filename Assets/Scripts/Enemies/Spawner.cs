@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TowerDefence.Managers;
+using TowerDefense.Managers;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TowerDefence.Towers;
-using TowerDefence.Utilities;
+using TowerDefense.Towers;
+using TowerDefense.Utilities;
 using UnityEngine;
 
 public class AssualtTower : BaseTower

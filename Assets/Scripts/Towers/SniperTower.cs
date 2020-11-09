@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TowerDefence.Managers;
-using TowerDefence.Towers;
-using TowerDefence.Utilities;
+using TowerDefense.Managers;
+using TowerDefense.Towers;
+using TowerDefense.Utilities;
 using UnityEngine;
 
 public class SniperTower : BaseTower
