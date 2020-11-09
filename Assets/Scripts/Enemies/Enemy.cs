@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
 
     public float XP { get { return xp; }  }
     public int Money { get { return money; } }
+    public float Speed { get => speed; }
 
     [Header("GeneralStats")]
     [SerializeField, Tooltip("How fast the enemy can move")]
