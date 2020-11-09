@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TowerDefense.Managers
+namespace TowerDefence.Managers
 {
     public class EnemyManager : MonoBehaviour
     {
@@ -31,7 +31,24 @@ namespace TowerDefense.Managers
             // adds the spawned enemy to the alive enemy list
             aliveEnemies.Add(newEnemy.GetComponent<Enemy>());
         }
+        /// <summary>
+        /// spawns enemy of a given type and adds to list
+        /// </summary>
+        /// <param name="_spawner">location on map</param>
+        /// <param name="_enemyPrefab">which enemy to spawn</param>
+        public void SpawnEnemy(Transform _spawner,GameObject _enemyPrefab)
+        {
+            // spawns a new enemy
+            GameObject newEnemy = Instantiate(_enemyPrefab, _spawner.position, _enemyPrefab.transform.rotation);
 
+            newEnemy.GetComponent<Enemy>().enemy = this; //give the enemy a reference to this enemy manager
+
+            // sets the parent of the objects
+            newEnemy.transform.SetParent(_spawner);
+
+            // adds the spawned enemy to the alive enemy list
+            aliveEnemies.Add(newEnemy.GetComponent<Enemy>());
+        }
         /// <summary>
         /// Used to kills the enemy and then removes the dead enemy from the list
         /// </summary>

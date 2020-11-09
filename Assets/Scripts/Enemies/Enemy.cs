@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TowerDefense.Managers;
+using TowerDefence.Managers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,18 +10,19 @@ public class Enemy : MonoBehaviour
 
     public float XP { get { return xp; }  }
     public int Money { get { return money; } }
+    public float Speed { get => speed; }
 
     [Header("GeneralStats")]
     [SerializeField, Tooltip("How fast the enemy can move")]
-    private float speed = 0.5f;
+    protected float speed = 0.5f;
     [SerializeField, Tooltip("The amount of health the enemy has")]
-    private float health = 1;
+    protected float health = 1;
 
     [Header("Rewards")]
     [SerializeField, Tooltip("The amount of xp awarded when the enemy is killed")]
-    private float xp;
+    protected float xp;
     [SerializeField, Tooltip("The amount of money awarded when the enemy is killed")]
-    private int money;
+    protected int money;
 
     [Space]
 
@@ -57,16 +58,6 @@ public class Enemy : MonoBehaviour
         //player = Player.instance;
         //onDeath.AddListener(player.Addmoney);
 
-    }
-
-    private void Move()
-    {
-        transform.Translate(transform.right * -speed);
-    }
-
-    private void Update()
-    {
-        Move();
     }
 
 
