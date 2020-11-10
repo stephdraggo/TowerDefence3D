@@ -27,7 +27,7 @@ namespace TowerDefence.Mechanics.Spawning
         {
             get
             {
-                return (plebInWave + fastInWave + tankInWave) / lengthOfWave;
+                return (plebInWave/4 + fastInWave + tankInWave/2) / lengthOfWave;
             }
         }
         #endregion
@@ -54,8 +54,6 @@ namespace TowerDefence.Mechanics.Spawning
             {
                 WaveContents(); //determine contents of wave
 
-                localSpawnRate = spawnRate; //calculate spawn rate for this wave
-
                 waveReady = true; //wave is ready to go
 
                 waveNumber++;
@@ -78,6 +76,7 @@ namespace TowerDefence.Mechanics.Spawning
         #region Functions
         public void StartWave()
         {
+            localSpawnRate = spawnRate; //calculate spawn rate for this wave
             inWave = true;
             waveTimer = 0;
         }
