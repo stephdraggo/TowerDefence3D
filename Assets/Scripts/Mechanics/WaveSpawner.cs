@@ -15,10 +15,10 @@ namespace TowerDefence.Mechanics.Spawning
         [SerializeField, Tooltip("0: pleb, 1: fast, 2: tank")]
         private GameObject[] enemyPrefabs;
 
-        private bool waveReady = false,inWave=false;
+        private bool waveReady = false, inWave = false;
 
 
-        private float spawnRateTimer = 0,waveTimer=0;
+        private float spawnRateTimer = 0, waveTimer = 0;
         private EnemyManager enemyManager;
         #endregion
         #region Properties
@@ -27,7 +27,7 @@ namespace TowerDefence.Mechanics.Spawning
         {
             get
             {
-                return (plebInWave/4 + fastInWave + tankInWave/2) / lengthOfWave;
+                return Mathf.Max((plebInWave / 4 + fastInWave + tankInWave / 2) / lengthOfWave, 2);
             }
         }
         #endregion
@@ -66,11 +66,12 @@ namespace TowerDefence.Mechanics.Spawning
                 {
                     inWave = false;
                 }
+                else
+                {
+                    waveTimer += Time.deltaTime;
+                }
             }
-
-
-            waveTimer += Time.deltaTime;
-            spawnRateTimer += Time.deltaTime;
+            
         }
         #endregion
         #region Functions
@@ -108,6 +109,10 @@ namespace TowerDefence.Mechanics.Spawning
                     waveReady = false; //this prepared wave has been used up
                 }
 
+            }
+            else
+            {
+                spawnRateTimer += Time.deltaTime;
             }
         }
         #endregion
@@ -192,7 +197,7 @@ namespace TowerDefence.Mechanics.Spawning
             }
         }
         #endregion
-    
+
         #endregion
 
 
