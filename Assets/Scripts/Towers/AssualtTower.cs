@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TowerDefense.Towers;
-using TowerDefense.Utilities;
+using TowerDefence.Towers;
+using TowerDefence.Utilities;
 using UnityEngine;
 
 public class AssualtTower : BaseTower
@@ -27,8 +27,10 @@ public class AssualtTower : BaseTower
     private void AimAndFire()
     {
         // gets the distance and direction of the target
+        //Vector3 lerpthis = 
         MathUtils.DistanceAndDirection(out float _distance, out Vector3 direction, turret, TargetedEnemy.transform);
         // rotates the turret to look at the direction of the target
+
         turret.rotation = Quaternion.LookRotation(direction);
     }
     protected override void RenderAttackVisuals()

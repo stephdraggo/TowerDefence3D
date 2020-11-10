@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TowerDefense.Managers
+namespace TowerDefence.Managers
 {
     public class EnemyManager : MonoBehaviour
     {
         public static EnemyManager instance = null;
-        [SerializeField]
-        private Flammer flame;
 
         [SerializeField]
         private GameObject enemyPrefab;

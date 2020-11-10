@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TowerDefense.Managers;
+using TowerDefence.Managers;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -17,6 +17,7 @@ public class Spawner : MonoBehaviour
     private float spawnRate;
 
     private float currentTime = 0;
+    [SerializeField]
     private EnemyManager enemyManager;
 
     private void Start()

@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TowerDefense.Managers;
-using TowerDefense.Utilities;
+using TowerDefence.Managers;
+using TowerDefence.Utilities;
 using UnityEngine;
 
-namespace TowerDefense.Towers
+namespace TowerDefence.Towers
 {
     [System.Serializable]
     public abstract class BaseTower : MonoBehaviour

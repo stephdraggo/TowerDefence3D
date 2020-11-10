@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TowerDefense.Managers;
+using TowerDefence.Managers;
 using UnityEngine;
 using UnityEngine.Events;
 
