@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  health: 50
+  health: 100
   xp: 0
   money: 0
   enemy: {fileID: 3393581113380438009, guid: e4d93f95c86138c4cbdc6b5c9c85b0c1, type: 3}

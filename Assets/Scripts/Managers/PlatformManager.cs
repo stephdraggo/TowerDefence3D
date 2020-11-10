@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TowerDefence.Managers;
 using UnityEngine;
 
 public class PlatformManager : MonoBehaviour
 {
-    public GameObject TowerPrefab;
+    [SerializeField]
+    TowerManager manager;
 
     private void OnMouseUpAsButton()
     {
-        Instantiate(TowerPrefab, transform.position, Quaternion.identity);
+        manager.SpawnTowerPrefab(transform);
     }
 
     // Start is called before the first frame update

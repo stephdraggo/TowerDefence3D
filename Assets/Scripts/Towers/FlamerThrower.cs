@@ -15,4 +15,13 @@ public class FlamerThrower : MonoBehaviour
             flamer.targets.Add(other.gameObject.GetComponent<Enemy>());
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<Enemy>() != null)
+        {
+            Debug.Log("enemy Left");
+            flamer.targets.RemoveAt(flamer.index);
+        }
+    }
 }

@@ -8,15 +8,20 @@ public class Flammer : BaseTower
 {
     [SerializeField]
     public List<Enemy> targets = new List<Enemy>();
+    public int index;
 
 
-    [SerializeField, Tooltip("Displays the towers max range")]
-    private Transform towerMaxRange;
-    [SerializeField, Tooltip("Displays the towers min range")]
-    private Transform towerMinRange;
+    [SerializeField, Tooltip("Displays the tower's range")]
+    private Transform towerMaxRange, towerMinRange;
+
+
     [SerializeField]
     private Transform turret;
 
+    private void OnMouseEnter()
+    {
+        Debug.Log("Display Range");
+    }
 
     private void AimAndFire()
     {
@@ -40,12 +45,12 @@ public class Flammer : BaseTower
             {
                 Enemy enemy = targets[x];
 
-                int _index = targets.IndexOf(enemy);
+                index = targets.IndexOf(enemy);
                 if (enemy.Damage(damage))
                 {                //enemy is dead
-                    if (_index != -1)
+                    if (index != -1)
                     {
-                        targets.RemoveAt(_index);
+                        targets.RemoveAt(index);
                     }
                 }
             }
@@ -88,6 +93,6 @@ public class Flammer : BaseTower
         {
             AimAndFire();
         }
-        
+
     }
 }
