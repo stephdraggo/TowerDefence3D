@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TowerDefense.Managers
+namespace TowerDefence.Managers
 {
     public class EnemyManager : MonoBehaviour
     {

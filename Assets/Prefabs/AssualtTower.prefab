@@ -49,7 +49,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &626047846
 Transform:
   m_ObjectHideFlags: 0
@@ -283,6 +283,38 @@ Transform:
   m_Father: {fileID: 7322810121711952423}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2139368722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6376476384568092247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69b08de512131d14eb2d112432681dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerName: Assault Tower
+  description: 
+  cost: 20
+  damage: 1
+  minRange: 4
+  maxRange: 10
+  rangeUpgrade: 1
+  fireRate: 0.1
+  maxLevel: 2
+  requiredXp: 5
+  xpScale: 1
+  isFiring: 0
+  target: {fileID: 0}
+  turret: {fileID: 5669933062939296554}
+  bullet: {fileID: 1541555968}
+  barrel: {fileID: 48385162}
+  towerMaxRange: {fileID: 626047846}
+  towerMinRange: {fileID: 6747552218842523669}
+  lineTime: 0
+  fire: 0
 --- !u!1 &371138013336327273
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6747552218842523669
 Transform:
   m_ObjectHideFlags: 0
@@ -564,38 +596,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2139368722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6376476384568092247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69b08de512131d14eb2d112432681dc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerName: Assault Tower
-  description: 
-  cost: 20
-  damage: 1
-  minRange: 4
-  maxRange: 10
-  rangeUpgrade: 1
-  fireRate: 0.1
-  maxLevel: 2
-  requiredXp: 5
-  xpScale: 1
-  isFiring: 0
-  target: {fileID: 0}
-  turret: {fileID: 5669933062939296554}
-  bullet: {fileID: 1541555968}
-  barrel: {fileID: 48385162}
-  towerMaxRange: {fileID: 626047846}
-  towerMinRange: {fileID: 6747552218842523669}
-  lineTime: 0
-  fire: 0
 --- !u!1 &7259144298605451884
 GameObject:
   m_ObjectHideFlags: 0

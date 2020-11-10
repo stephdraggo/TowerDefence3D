@@ -18,8 +18,6 @@ namespace TowerDefence.Mechanics.Enemies
 
         void Start()
         {
-            target =GameObject.FindGameObjectWithTag("Goal");
-
             agent = gameObject.GetComponent<NavMeshAgent>(); //connect nav mesh agent
 
             agent.SetDestination(target.transform.position); //set target position
