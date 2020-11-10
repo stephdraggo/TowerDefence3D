@@ -16,7 +16,7 @@ public class PlatformManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = FindObjectOfType<TowerManager>(); 
     }
 
     // Update is called once per frame
