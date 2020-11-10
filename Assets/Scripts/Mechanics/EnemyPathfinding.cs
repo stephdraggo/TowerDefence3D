@@ -29,7 +29,7 @@ namespace TowerDefence.Mechanics.Enemies
 
             agent.speed = gameObject.GetComponent<Enemy>().Speed; //get speed of this enemy
 
-
+            target = GameObject.FindGameObjectWithTag("Goal"); //find and connect goal
         }
 
         private void Update()
