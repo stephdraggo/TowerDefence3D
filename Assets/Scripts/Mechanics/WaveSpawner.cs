@@ -23,13 +23,8 @@ namespace TowerDefence.Mechanics.Spawning
         #endregion
         #region Properties
         public int WaveNumber { get => waveNumber; }
-        private float spawnRate
-        {
-            get
-            {
-                return Mathf.Max((plebInWave / 4 + fastInWave + tankInWave / 2) / lengthOfWave, 2);
-            }
-        }
+        public int WaveContent { get => (plebInWave + fastInWave + tankInWave); }
+        private float spawnRate { get => (lengthOfWave / WaveContent); }
         #endregion
         #region Start
         private void Start()
@@ -43,7 +38,10 @@ namespace TowerDefence.Mechanics.Spawning
             lengthOfWave = 5;
             waveReady = false;
 
-            GameManager.gameDifficulty = GameDifficulty.Easy;
+            if (GameManager.gameDifficulty == GameDifficulty.None) //set default game difficulty to easy
+            {
+                GameManager.gameDifficulty = GameDifficulty.Easy;
+            }
         }
         #endregion
         #region Update
@@ -59,19 +57,23 @@ namespace TowerDefence.Mechanics.Spawning
                 waveNumber++;
             }
 
-            if (inWave)
+            if (inWave) // || (plebInWave + fastInWave + tankInWave) > 0
             {
                 SpawnWave();
                 if (waveTimer > lengthOfWave)
                 {
                     inWave = false;
+                    if ((plebInWave + fastInWave + tankInWave) > 0) //if there are enemies left
+                    {
+                        inWave = true; //extend the wave for another round
+                    }
                 }
                 else
                 {
                     waveTimer += Time.deltaTime;
                 }
             }
-            
+
         }
         #endregion
         #region Functions
@@ -92,15 +94,15 @@ namespace TowerDefence.Mechanics.Spawning
                 spawnRateTimer = 0; //reset timer
 
                 //spawn here
-                if (plebInWave > 0)
+                if (plebInWave > 0) //if this wave has plebs
                 {
-                    SpawnEnemies(0, 4);
+                    SpawnEnemies(0, 4); //spawn plebs
                 }
-                else if (fastInWave > 0)
+                else if (fastInWave > 0) //fast
                 {
                     SpawnEnemies(1, 1);
                 }
-                else if (tankInWave > 0)
+                else if (tankInWave > 0) //tank
                 {
                     SpawnEnemies(2, 2);
                 }
@@ -109,6 +111,10 @@ namespace TowerDefence.Mechanics.Spawning
                     waveReady = false; //this prepared wave has been used up
                 }
 
+                if (WaveContent <= 0) //if this wave is now empty
+                {
+                    waveReady = false; //prepare next wave
+                }
             }
             else
             {
@@ -134,13 +140,13 @@ namespace TowerDefence.Mechanics.Spawning
             switch (_type)
             {
                 case 0:
-                    plebInWave -= _amount;
+                    plebInWave--;
                     break;
                 case 1:
-                    fastInWave -= _amount;
+                    fastInWave--;
                     break;
                 case 2:
-                    tankInWave -= _amount;
+                    tankInWave--;
                     break;
 
                 default:
@@ -165,19 +171,19 @@ namespace TowerDefence.Mechanics.Spawning
                     Debug.LogError("No game difficulty detected, fam.");
                     break;
                 case GameDifficulty.Easy:
-                    pBase = 8;
-                    fBase = 2;
+                    pBase = 2;
+                    fBase = 1;
                     tBase = 1;
                     break;
                 case GameDifficulty.Medium:
-                    pBase = 16;
-                    fBase = 4;
-                    tBase = 2;
+                    pBase = 4;
+                    fBase = 2;
+                    tBase = 1;
                     break;
                 case GameDifficulty.Hard:
-                    pBase = 32;
-                    fBase = 8;
-                    tBase = 4;
+                    pBase = 8;
+                    fBase = 4;
+                    tBase = 2;
                     break;
                 default:
                     Debug.LogError("No game difficulty detected, fam.");
@@ -192,7 +198,7 @@ namespace TowerDefence.Mechanics.Spawning
                 fastInWave += fBase * (waveNumber + 1);
                 if (waveNumber >= 2)
                 {
-                    tankInWave += tBase * (waveNumber + 1);
+                    tankInWave += tBase * (waveNumber);
                 }
             }
         }

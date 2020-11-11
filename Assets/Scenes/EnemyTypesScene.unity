@@ -12282,8 +12282,8 @@ MonoBehaviour:
   localSpawnRate: 0
   enemyPrefabs:
   - {fileID: 5207031378256711679, guid: 38d2da8721ed3b74fa69aa1c9e2ab47c, type: 3}
-  - {fileID: 5207031378256711679, guid: 38d2da8721ed3b74fa69aa1c9e2ab47c, type: 3}
-  - {fileID: 5207031378256711679, guid: 38d2da8721ed3b74fa69aa1c9e2ab47c, type: 3}
+  - {fileID: 8299219614931821630, guid: 2000bb8be48ba09458d3ebd6539df9ac, type: 3}
+  - {fileID: 2128033657081428822, guid: 1b063d98bb1cbd340b2d5c47a0d5e183, type: 3}
 --- !u!65 &1050129380
 BoxCollider:
   m_ObjectHideFlags: 0
