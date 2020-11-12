@@ -4,14 +4,11 @@ using UnityEngine;
 
 namespace TowerDefence.Mechanics.Enemies
 {
+    [AddComponentMenu("Mechanics/Enemy/Pleb")]
     public class PlebEnemy : Enemy
     {
-        [SerializeField] private float typeSpeed = 1f;
-
         private void Awake()
         {
-            speed = typeSpeed;
-            //assign new stat values here
         }
 
         void Update()

@@ -4,14 +4,11 @@ using UnityEngine;
 
 namespace TowerDefence.Mechanics.Enemies
 {
+    [AddComponentMenu("Mechanics/Enemy/Fast")]
     public class FastEnemy : Enemy
     {
-        [SerializeField] private float typeSpeed = 5f;
-
         private void Awake()
         {
-            speed = typeSpeed;
-            //assign new stat values here
         }
 
         void Update()
