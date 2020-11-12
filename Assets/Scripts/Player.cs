@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using TowerDefence.Towers;
 using UnityEngine;
@@ -8,8 +9,12 @@ namespace TowerDefence.notPlayer
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField, Tooltip("How much money the player has")]
-        public float money = 100;
+        [Tooltip("How much money the player has")]
+        public float money = 100f;
+        [SerializeField]
+        private float health;
+        [SerializeField]
+        private float maxHealth = 100f;
         [SerializeField]
         private float zSpeed;
         [SerializeField]
@@ -17,6 +22,8 @@ namespace TowerDefence.notPlayer
        
         [SerializeField]
         private GameObject _displayCurrency;
+        [SerializeField]
+        private Image healthBar;
 
 
         private void MoveCamera()
@@ -34,15 +41,35 @@ namespace TowerDefence.notPlayer
             money -= _towerCost;
         }
 
+        public void AddMoney(float _addMoney)
+        {
+            money += _addMoney;
+        }
+
+        private void SetHealth(float _health)
+        {
+            healthBar.fillAmount = Mathf.Clamp01(_health / maxHealth);
+        }
+
+        public void Damage(float _damage)
+        {
+            health -= _damage;
+            if (health <= 0)
+            {
+                health = 0;
+            }
+        }
+
         private void Start()
         {
-
+            health = maxHealth;
         }
 
         private void Update()
         {
             MoveCamera();
             DisplayCurrency();
+            SetHealth(health);
         }
     }
 }

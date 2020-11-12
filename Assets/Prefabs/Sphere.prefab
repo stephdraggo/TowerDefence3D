@@ -132,9 +132,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   health: 20
+  damage: 10
   xp: 0
-  money: 0
+  money: 20
   enemy: {fileID: 3393581113380438009, guid: e4d93f95c86138c4cbdc6b5c9c85b0c1, type: 3}
+  player: {fileID: 0}
 --- !u!114 &5207031378256711676
 MonoBehaviour:
   m_ObjectHideFlags: 0
