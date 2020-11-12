@@ -21,6 +21,7 @@ namespace TowerDefence.Mechanics.Spawning
 
         private EnemyManager enemyManager;
         #endregion
+        
         #region Properties
         public int WaveNumber { get => waveNumber; }
         public int TotalWaves { get => totalWaves; }
@@ -28,6 +29,7 @@ namespace TowerDefence.Mechanics.Spawning
         private float WaveLength { get => waveLengthBase + waveNumber * 2; }
         private float SpawnRate { get => WaveLength / WaveContent; }
         #endregion
+        
         #region Start
         private void Start()
         {
@@ -65,6 +67,7 @@ namespace TowerDefence.Mechanics.Spawning
             #endregion
         }
         #endregion
+        
         #region Update
         void Update()
         {
@@ -97,6 +100,7 @@ namespace TowerDefence.Mechanics.Spawning
             #endregion
         }
         #endregion
+        
         #region Functions
         #region start wave
         /// <summary>
@@ -113,6 +117,7 @@ namespace TowerDefence.Mechanics.Spawning
             }
         }
         #endregion
+        
         #region spawn wave
         /// <summary>
         /// Spawn contents of wave spread out over wave time.
@@ -149,6 +154,7 @@ namespace TowerDefence.Mechanics.Spawning
             }
         }
         #endregion
+        
         #region spawn enemies
         /// <summary>
         /// Spawn a given number of enemies of a given type.
@@ -182,6 +188,7 @@ namespace TowerDefence.Mechanics.Spawning
             }
         }
         #endregion
+        
         #region wave contents
         /// <summary>
         /// Determine contents of wave according to wave number and difficulty setting.
