@@ -8,23 +8,25 @@ namespace TowerDefence.Mechanics.Spawning
     public class WaveSpawner : MonoBehaviour
     {
         #region Variables
-        [SerializeField, Min(0)] private int waveNumber, totalWaves, plebInWave, fastInWave, tankInWave;
+        [SerializeField] private int waveNumber, totalWaves;
 
-        [SerializeField] private float lengthOfWave, localSpawnRate;
+        [Min(0)] private int plebSetInWave, fastSetInWave, tankSetInWave;
 
         [SerializeField, Tooltip("0: pleb, 1: fast, 2: tank")]
         private GameObject[] enemyPrefabs;
 
         private bool waveReady = false, inWave = false;
 
+        private float spawnRateTimer = 0, waveTimer = 0, lengthOfWave, localSpawnRate, waveLengthBase;
 
-        private float spawnRateTimer = 0, waveTimer = 0;
         private EnemyManager enemyManager;
         #endregion
         #region Properties
         public int WaveNumber { get => waveNumber; }
-        public int WaveContent { get => (plebInWave + fastInWave + tankInWave); }
-        private float spawnRate { get => (lengthOfWave / WaveContent); }
+        public int TotalWaves { get => totalWaves; }
+        public int WaveContent { get => plebSetInWave + fastSetInWave + tankSetInWave; }
+        private float WaveLength { get => waveLengthBase + waveNumber * 2; }
+        private float SpawnRate { get => WaveLength / WaveContent; }
         #endregion
         #region Start
         private void Start()
@@ -32,22 +34,41 @@ namespace TowerDefence.Mechanics.Spawning
             enemyManager = EnemyManager.instance;
 
             waveNumber = 0;
-
-            //for testing
-            totalWaves = 10;
-            lengthOfWave = 5;
             waveReady = false;
 
             if (GameManager.gameDifficulty == GameDifficulty.None) //set default game difficulty to easy
             {
                 GameManager.gameDifficulty = GameDifficulty.Easy;
             }
+
+            #region set number of waves and base length by difficulty
+            switch (GameManager.gameDifficulty)
+            {
+                case GameDifficulty.None:
+                    Debug.LogError("Something ain't right, chief.");
+                    break;
+                case GameDifficulty.Easy:
+                    totalWaves = 10;
+                    waveLengthBase = 5;
+                    break;
+                case GameDifficulty.Medium:
+                    totalWaves = 15;
+                    waveLengthBase = 6;
+                    break;
+                case GameDifficulty.Hard:
+                    totalWaves = 20;
+                    waveLengthBase = 7;
+                    break;
+                default:
+                    break;
+            }
+            #endregion
         }
         #endregion
         #region Update
         void Update()
         {
-            //or if wave called early
+            #region check if wave ready
             if (!waveReady) //if wave not ready, set up new wave
             {
                 WaveContents(); //determine contents of wave
@@ -56,33 +77,42 @@ namespace TowerDefence.Mechanics.Spawning
 
                 waveNumber++;
             }
-
-            if (inWave) // || (plebInWave + fastInWave + tankInWave) > 0
+            #endregion
+           
+            #region check if in wave
+            if (inWave)
             {
                 SpawnWave();
                 if (waveTimer > lengthOfWave)
                 {
-                    inWave = false;
-                    if ((plebInWave + fastInWave + tankInWave) > 0) //if there are enemies left
-                    {
-                        inWave = true; //extend the wave for another round
-                    }
+                    //showing off my ternary operator skills right here
+                    //if there are enemies left, we're still in the wave, otherwise the wave ends
+                    inWave = (plebSetInWave + fastSetInWave + tankSetInWave > 0) ? true : false;
                 }
                 else
                 {
                     waveTimer += Time.deltaTime;
                 }
             }
-
+            #endregion
         }
         #endregion
         #region Functions
+        #region start wave
+        /// <summary>
+        /// Tells wave to start, attach to UI button please.
+        /// </summary>
         public void StartWave()
         {
-            localSpawnRate = spawnRate; //calculate spawn rate for this wave
-            inWave = true;
-            waveTimer = 0;
+            if (waveReady && !inWave)
+            {
+                localSpawnRate = SpawnRate; //calculate spawn rate for this wave
+                inWave = true;
+                waveTimer = 0;
+                lengthOfWave = WaveLength;
+            }
         }
+        #endregion
         #region spawn wave
         /// <summary>
         /// Spawn contents of wave spread out over wave time.
@@ -94,25 +124,22 @@ namespace TowerDefence.Mechanics.Spawning
                 spawnRateTimer = 0; //reset timer
 
                 //spawn here
-                if (plebInWave > 0) //if this wave has plebs
+                if (plebSetInWave > 0) //if this wave has plebs
                 {
                     SpawnEnemies(0, 4); //spawn plebs
                 }
-                else if (fastInWave > 0) //fast
+                else if (fastSetInWave > 0) //fast
                 {
                     SpawnEnemies(1, 1);
                 }
-                else if (tankInWave > 0) //tank
+                else if (tankSetInWave > 0) //tank
                 {
                     SpawnEnemies(2, 2);
-                }
-                else
-                {
-                    waveReady = false; //this prepared wave has been used up
                 }
 
                 if (WaveContent <= 0) //if this wave is now empty
                 {
+                    inWave = false; //end current wave
                     waveReady = false; //prepare next wave
                 }
             }
@@ -140,13 +167,13 @@ namespace TowerDefence.Mechanics.Spawning
             switch (_type)
             {
                 case 0:
-                    plebInWave--;
+                    plebSetInWave--;
                     break;
                 case 1:
-                    fastInWave--;
+                    fastSetInWave--;
                     break;
                 case 2:
-                    tankInWave--;
+                    tankSetInWave--;
                     break;
 
                 default:
@@ -192,22 +219,18 @@ namespace TowerDefence.Mechanics.Spawning
             #endregion
 
             //add to spawnables count according to wave number
-            plebInWave += pBase * (waveNumber + 1);
+            plebSetInWave += pBase * (waveNumber + 1);
             if (waveNumber >= 1)
             {
-                fastInWave += fBase * (waveNumber + 1);
+                fastSetInWave += fBase * (waveNumber + 1);
                 if (waveNumber >= 2)
                 {
-                    tankInWave += tBase * (waveNumber);
+                    tankSetInWave += tBase * (waveNumber);
                 }
             }
         }
         #endregion
-
         #endregion
-
-
-
     }
     public enum GameDifficulty
     {
