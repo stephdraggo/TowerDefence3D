@@ -83,16 +83,16 @@ namespace TowerDefence.Towers
         #region General
         [Header("General Tower Stats")]
         [SerializeField]
-        private string towerName = "";
+        public string towerName = "";
         [SerializeField, TextArea]
-        private string description = "";
+        public string description = "";
         [SerializeField, Range(1, 200)]
-        private int cost = 1;
+        public int cost = 1;
         #endregion
 
         #region Attack
         [Header("Tower Attack Stats")]
-        [SerializeField, Min(0.1f)]
+        [SerializeField, Min(0.01f)]
         protected float damage = 1;
         [SerializeField, Min(0.1f)]
         protected float minRange = 1;

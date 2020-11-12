@@ -24,6 +24,11 @@ public class SniperTower : BaseTower
     private float targettingTime;
     private float maxTargettingTime = 3.5f;
 
+    private void Awake()
+    {
+        enemy = FindObjectOfType<EnemyManager>();   
+    }
+
     protected void Start()
     {
         targettingTime = 2;

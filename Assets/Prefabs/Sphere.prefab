@@ -131,10 +131,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  health: 1
+  health: 20
+  damage: 10
   xp: 0
-  money: 0
-  enemy: {fileID: 0}
+  money: 20
+  enemy: {fileID: 3393581113380438009, guid: e4d93f95c86138c4cbdc6b5c9c85b0c1, type: 3}
+  player: {fileID: 0}
 --- !u!114 &5207031378256711676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,4 +150,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 5207031378256711666}
-  target: {fileID: 0}
+  target: {fileID: 6617986796708183113, guid: 994db8b687de6cb4c8dc66c04fcd6a0c, type: 3}

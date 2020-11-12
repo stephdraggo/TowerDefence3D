@@ -106,8 +106,6 @@ namespace TowerDefence.Managers
                 Destroy(gameObject);
                 return;
             }
-
-            DontDestroyOnLoad(gameObject);
         }
 
     }
