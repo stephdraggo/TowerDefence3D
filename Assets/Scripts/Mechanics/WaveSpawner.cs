@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace TowerDefence.Mechanics.Spawning
 {
+    [AddComponentMenu("Mechanics/Enemy/Wave Spawner")]
     public class WaveSpawner : MonoBehaviour
     {
         #region Variables
@@ -21,7 +22,7 @@ namespace TowerDefence.Mechanics.Spawning
 
         private EnemyManager enemyManager;
         #endregion
-        
+
         #region Properties
         public int WaveNumber { get => waveNumber; }
         public int TotalWaves { get => totalWaves; }
@@ -29,7 +30,7 @@ namespace TowerDefence.Mechanics.Spawning
         private float WaveLength { get => waveLengthBase + waveNumber * 2; }
         private float SpawnRate { get => WaveLength / WaveContent; }
         #endregion
-        
+
         #region Start
         private void Start()
         {
@@ -67,7 +68,7 @@ namespace TowerDefence.Mechanics.Spawning
             #endregion
         }
         #endregion
-        
+
         #region Update
         void Update()
         {
@@ -81,7 +82,7 @@ namespace TowerDefence.Mechanics.Spawning
                 waveNumber++;
             }
             #endregion
-           
+
             #region check if in wave
             if (inWave)
             {
@@ -100,7 +101,7 @@ namespace TowerDefence.Mechanics.Spawning
             #endregion
         }
         #endregion
-        
+
         #region Functions
         #region start wave
         /// <summary>
@@ -117,7 +118,7 @@ namespace TowerDefence.Mechanics.Spawning
             }
         }
         #endregion
-        
+
         #region spawn wave
         /// <summary>
         /// Spawn contents of wave spread out over wave time.
@@ -135,11 +136,11 @@ namespace TowerDefence.Mechanics.Spawning
                 }
                 else if (fastSetInWave > 0) //fast
                 {
-                    SpawnEnemies(1, 1);
+                    SpawnEnemies(1, 6);
                 }
                 else if (tankSetInWave > 0) //tank
                 {
-                    SpawnEnemies(2, 2);
+                    SpawnEnemies(2, 1);
                 }
 
                 if (WaveContent <= 0) //if this wave is now empty
@@ -154,7 +155,7 @@ namespace TowerDefence.Mechanics.Spawning
             }
         }
         #endregion
-        
+
         #region spawn enemies
         /// <summary>
         /// Spawn a given number of enemies of a given type.
@@ -188,7 +189,7 @@ namespace TowerDefence.Mechanics.Spawning
             }
         }
         #endregion
-        
+
         #region wave contents
         /// <summary>
         /// Determine contents of wave according to wave number and difficulty setting.
