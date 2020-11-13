@@ -654,23 +654,6 @@ MonoBehaviour:
   towerMaxRange: {fileID: 1622469727}
   towerMinRange: {fileID: 1146445174}
   turret: {fileID: 1336782025240571672}
->>>>>>> Stashed changes
---- !u!1 &5645124775861488781
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1336782025240571672}
-  m_Layer: 0
-  m_Name: Turret
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &1336782025240571672
 Transform:
   m_ObjectHideFlags: 0

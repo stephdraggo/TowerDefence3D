@@ -30,6 +30,8 @@ namespace TowerDefence.notPlayer
         private Text _displayReward;
         [SerializeField]
         private Image healthBar;
+        [SerializeField]
+        private TowerDefence.Menus.MenuManager menMan;
 
 
         private void MoveCamera()
@@ -101,9 +103,18 @@ namespace TowerDefence.notPlayer
             }
         }
 
+        public void PlayerDeath(GameObject _deathScreen)
+        {   
+            if (health == 0)
+            {
+                _deathScreen.SetActive(true);
+            }
+        }
+
         private void Start()
         {
             health = maxHealth;
+            menMan = FindObjectOfType<TowerDefence.Menus.MenuManager>();
         }
 
         private void Update()
@@ -111,12 +122,9 @@ namespace TowerDefence.notPlayer
             MoveCamera();
             DisplayCurrency();
             SetHealth(health);
-<<<<<<< Updated upstream
-=======
 
             PlayerDeath(menMan.Panels[4]);
             EndWaveShowReward();
->>>>>>> Stashed changes
         }
     }
 }
