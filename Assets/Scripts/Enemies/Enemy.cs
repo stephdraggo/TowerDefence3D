@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Die();
-            player.AddMoney(Money);
+            player.PlayerMoneyReward(Money);
             return true;
         }
         return false;
