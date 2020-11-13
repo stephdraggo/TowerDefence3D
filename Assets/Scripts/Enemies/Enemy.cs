@@ -55,8 +55,8 @@ public class Enemy : MonoBehaviour
         currentHealth -= _damage;
         if (currentHealth <= 0)
         {
-            Die();
             player.PlayerMoneyReward(Money);
+            Die();
             return true;
         }
         return false;

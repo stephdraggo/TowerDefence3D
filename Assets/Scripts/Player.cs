@@ -48,6 +48,7 @@ namespace TowerDefence.notPlayer
             bool endWave1 = endWave == true && health <= 80;
             bool endWave2 = endWave == true && health <= 40;
             bool endWave3 = endWave == true && health == 100;
+            bool endWave4 = endWave == true && health < 100;
 
             if (endWave1)
             {
@@ -66,6 +67,12 @@ namespace TowerDefence.notPlayer
             if (endWave3)
             {
                 rewardMoney += 100;
+                AddMoney(rewardMoney);
+                rewardMoney = 0;
+                endWave = false;
+            }
+            if (endWave4)
+            {
                 AddMoney(rewardMoney);
                 rewardMoney = 0;
                 endWave = false;
@@ -108,6 +115,7 @@ namespace TowerDefence.notPlayer
             if (health == 0)
             {
                 _deathScreen.SetActive(true);
+                Time.timeScale = 0;
             }
         }
 
@@ -115,6 +123,7 @@ namespace TowerDefence.notPlayer
         {
             health = maxHealth;
             menMan = FindObjectOfType<TowerDefence.Menus.MenuManager>();
+            Time.timeScale = 1;
         }
 
         private void Update()
