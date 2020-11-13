@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 namespace TowerDefence.Menus
@@ -22,9 +23,13 @@ namespace TowerDefence.Menus
             "Game scene: Options Menu, Pause Menu, HUD, Win Screen, Lose Screen.")]
         private GameObject[] panels;
 
-        [Tooltip("Side panels in game scene, leave empty if menu scene.")]
+        [SerializeField,Tooltip("Side panels in game scene, leave empty if menu scene.")]
         private GameObject[] sidePanels;
 
+        [SerializeField, Tooltip("Attach one spawner to access wave number.")]
+        private Mechanics.Spawning.WaveSpawner spawner;
+
+        
         #endregion
         #region Properties
         //in case we want to access these from another script
@@ -69,7 +74,8 @@ namespace TowerDefence.Menus
         {
             if (gameSceneActive)
             {
-
+                //Win();
+                //Lose();
             }
             else
             {
@@ -171,9 +177,20 @@ namespace TowerDefence.Menus
 
         }
         #endregion
+        #region Win Lose
+        private void Win()
+        {
+            if (spawner.WaveNumber >= spawner.TotalWaves)
+            {
+                Time.timeScale = 0;
+                panels[3].SetActive(true);
+            }
+        }
+        private void Lose()
+        {
 
-
-
+        }
+        #endregion
         #endregion
         #region Menu Functions
         #region select difficulty, waiting on difficulty stats, change scene int when in main game project
