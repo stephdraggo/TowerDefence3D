@@ -21,7 +21,11 @@ public class FlamerThrower : MonoBehaviour
         if (other.gameObject.GetComponent<Enemy>() != null)
         {
             Debug.Log("enemy Left");
-            flamer.targets.RemoveAt(flamer.index);
+            if(flamer.targets != null)
+            {
+                flamer.targets.RemoveAt(flamer.index);
+            }
+            
         }
     }
 }

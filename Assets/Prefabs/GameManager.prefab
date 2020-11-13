@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9074675701523750698}
+  - component: {fileID: 1855883743}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -23,10 +24,49 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9074675701523750699}
-  m_LocalRotation: {x: -0.022834174, y: 0.9742537, z: -0.19272393, w: -0.114743024}
+  m_LocalRotation: {x: 0.0228307, y: -0.9742537, z: 0.19272411, w: 0.11474292}
   m_LocalPosition: {x: 4.844261, y: 3.4030955, z: 5.675041}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 22.381, y: -166.56902, z: -0.016}
+--- !u!114 &1855883743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074675701523750699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3082da7f552048d4e8182e8a80a64f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerDescription: {fileID: 0}
+  towerName: {fileID: 0}
+  prefab:
+  - {fileID: 2139368722, guid: 2c7ed2e40d9c2094e8ae52efc45d253e, type: 3}
+  - {fileID: 1886680886, guid: 64bb7ecbfa3640f45ada0c72ef836962, type: 3}
+  - {fileID: 1551038809, guid: da1aa3c6c29381c40b737a6050c0f541, type: 3}
+  player: {fileID: 0}
+  towerStats:
+  - tower: {fileID: 2139368722, guid: 2c7ed2e40d9c2094e8ae52efc45d253e, type: 3}
+    costText: {fileID: 0}
+    nameText: {fileID: 0}
+    towerSprite: {fileID: -590201877491475420, guid: 7f66fad6d29bf214bb4e4f17a8abf69e,
+      type: 3}
+    image: {fileID: 0}
+  - tower: {fileID: 1551038809, guid: da1aa3c6c29381c40b737a6050c0f541, type: 3}
+    costText: {fileID: 0}
+    nameText: {fileID: 0}
+    towerSprite: {fileID: 6297783543284638066, guid: e2749d8c0f6c3914f8c2ce7e2508a988,
+      type: 3}
+    image: {fileID: 0}
+  - tower: {fileID: 1886680886, guid: 64bb7ecbfa3640f45ada0c72ef836962, type: 3}
+    costText: {fileID: 0}
+    nameText: {fileID: 0}
+    towerSprite: {fileID: -3471792215866305562, guid: 985f546442555274591dd4b6c971a301,
+      type: 3}
+    image: {fileID: 0}
+  index: 0

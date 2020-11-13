@@ -24,6 +24,8 @@ namespace TowerDefence.notPlayer
         private GameObject _displayCurrency;
         [SerializeField]
         private Image healthBar;
+        [SerializeField]
+        private TowerDefence.Menus.MenuManager menMan;
 
 
         private void MoveCamera()
@@ -60,9 +62,22 @@ namespace TowerDefence.notPlayer
             }
         }
 
+        private void PlayerDeath(GameObject deathScreen)
+        {
+            if (health == 0)
+            {
+                Time.timeScale = 0;
+                deathScreen.SetActive(true);
+
+                Debug.LogError("PLAYER HAS DIED CRIES IN BINARY");
+            }
+        }
+
         private void Start()
         {
             health = maxHealth;
+            menMan = FindObjectOfType<TowerDefence.Menus.MenuManager>();
+            Time.timeScale = 1;
         }
 
         private void Update()
@@ -70,6 +85,8 @@ namespace TowerDefence.notPlayer
             MoveCamera();
             DisplayCurrency();
             SetHealth(health);
+
+            PlayerDeath(menMan.Panels[4]);
         }
     }
 }

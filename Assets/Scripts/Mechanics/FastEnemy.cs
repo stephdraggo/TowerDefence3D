@@ -7,13 +7,6 @@ namespace TowerDefence.Mechanics.Enemies
     [AddComponentMenu("Mechanics/Enemy/Fast")]
     public class FastEnemy : Enemy
     {
-        private void Awake()
-        {
-        }
 
-        void Update()
-        {
-
-        }
     }
 }

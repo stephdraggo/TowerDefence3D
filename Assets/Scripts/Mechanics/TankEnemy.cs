@@ -7,14 +7,7 @@ namespace TowerDefence.Mechanics.Enemies
     [AddComponentMenu("Mechanics/Enemy/Tank")]
     public class TankEnemy : Enemy
     {
-        private void Awake()
-        {
-        }
-
-        void Update()
-        {
-
-        }
+      
 
         private void AttackTower(Towers.BaseTower _tower)
         {

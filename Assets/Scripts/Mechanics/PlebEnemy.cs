@@ -7,13 +7,6 @@ namespace TowerDefence.Mechanics.Enemies
     [AddComponentMenu("Mechanics/Enemy/Pleb")]
     public class PlebEnemy : Enemy
     {
-        private void Awake()
-        {
-        }
-
-        void Update()
-        {
-
-        }
+        
     }
 }
