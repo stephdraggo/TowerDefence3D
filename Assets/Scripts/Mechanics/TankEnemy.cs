@@ -4,17 +4,12 @@ using UnityEngine;
 
 namespace TowerDefence.Mechanics.Enemies
 {
+    [AddComponentMenu("Mechanics/Enemy/Tank")]
     public class TankEnemy : Enemy
     {
-        [SerializeField] private float typeSpeed = .5f;
+      
 
-        private void Awake()
-        {
-            speed = typeSpeed;
-            //assign new stat values here
-        }
-
-        void Update()
+        private void AttackTower(Towers.BaseTower _tower)
         {
 
         }

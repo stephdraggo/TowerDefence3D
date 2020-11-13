@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6275942813096806729}
-  m_LocalRotation: {x: 0.02541985, y: 0.7500769, z: 0.029153619, w: -0.66021854}
+  m_LocalRotation: {x: 0.025416085, y: 0.75007915, z: 0.029152341, w: -0.6602162}
   m_LocalPosition: {x: 9.721, y: 0.256, z: -1.314}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: -4.433, y: 262.70898, z: -0.021000002}
 --- !u!114 &6275942813096806710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 1
+  enemyManager: {fileID: 0}
