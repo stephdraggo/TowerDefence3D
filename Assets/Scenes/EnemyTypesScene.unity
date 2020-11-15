@@ -1498,7 +1498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &155483856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2867,6 +2867,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1247882840}
+    - target: {fileID: 3855554495314907484, guid: 4c8b8f7b5e8c341429c232b4567a5abd,
+        type: 3}
+      propertyPath: _displayReward
+      value: 
+      objectReference: {fileID: 1444289884}
     - target: {fileID: 3855554495314907485, guid: 4c8b8f7b5e8c341429c232b4567a5abd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15607,7 +15612,7 @@ PrefabInstance:
     - target: {fileID: 3530596806156581938, guid: f83f6d04dea015144b1d82d98d8fcda8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -54.009945
+      value: -54.00999
       objectReference: {fileID: 0}
     - target: {fileID: 3530596806166862289, guid: f83f6d04dea015144b1d82d98d8fcda8,
         type: 3}
