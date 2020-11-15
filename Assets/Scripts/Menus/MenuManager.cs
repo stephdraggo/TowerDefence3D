@@ -74,8 +74,7 @@ namespace TowerDefence.Menus
         {
             if (gameSceneActive)
             {
-                //Win();
-                //Lose();
+
             }
             else
             {
