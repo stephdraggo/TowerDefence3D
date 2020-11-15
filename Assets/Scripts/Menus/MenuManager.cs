@@ -23,13 +23,13 @@ namespace TowerDefence.Menus
             "Game scene: Options Menu, Pause Menu, HUD, Win Screen, Lose Screen.")]
         private GameObject[] panels;
 
-        [SerializeField,Tooltip("Side panels in game scene, leave empty if menu scene.")]
+        [SerializeField, Tooltip("Side panels in game scene, leave empty if menu scene.")]
         private GameObject[] sidePanels;
 
         [SerializeField, Tooltip("Attach one spawner to access wave number.")]
         private Mechanics.Spawning.WaveSpawner spawner;
 
-        
+
         #endregion
         #region Properties
         //in case we want to access these from another script
@@ -174,20 +174,6 @@ namespace TowerDefence.Menus
             sidePanels[0].SetActive(true); //show single
             //else
             sidePanels[1].SetActive(true); //show multiple
-
-        }
-        #endregion
-        #region Win Lose
-        private void Win()
-        {
-            if (spawner.WaveNumber >= spawner.TotalWaves)
-            {
-                Time.timeScale = 0;
-                panels[3].SetActive(true);
-            }
-        }
-        private void Lose()
-        {
 
         }
         #endregion

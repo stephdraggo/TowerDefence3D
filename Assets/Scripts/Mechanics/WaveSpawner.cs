@@ -21,6 +21,8 @@ namespace TowerDefence.Mechanics.Spawning
         private float spawnRateTimer = 0, waveTimer = 0, lengthOfWave, localSpawnRate, waveLengthBase;
 
         private EnemyManager enemyManager;
+
+        private Menus.WinLose winLose;
         #endregion
 
         #region Properties
@@ -35,6 +37,7 @@ namespace TowerDefence.Mechanics.Spawning
         private void Start()
         {
             enemyManager = EnemyManager.instance;
+            winLose = FindObjectOfType<Menus.WinLose>();
 
             waveNumber = 0;
             waveReady = false;
@@ -75,6 +78,11 @@ namespace TowerDefence.Mechanics.Spawning
             #region check if wave ready
             if (!waveReady) //if wave not ready, set up new wave
             {
+                if (WaveNumber > TotalWaves) //check win
+                {
+                    winLose.Win(); //call win
+                }
+
                 WaveContents(); //determine contents of wave
 
                 waveReady = true; //wave is ready to go
@@ -99,6 +107,8 @@ namespace TowerDefence.Mechanics.Spawning
                 }
             }
             #endregion
+
+            
         }
         #endregion
 
@@ -228,12 +238,15 @@ namespace TowerDefence.Mechanics.Spawning
 
             //add to spawnables count according to wave number
             plebSetInWave += pBase * (waveNumber + 1);
+            winLose.plebCount += plebSetInWave * 4;
             if (waveNumber >= 1)
             {
                 fastSetInWave += fBase * (waveNumber + 1);
+                winLose.fastCount += fastSetInWave * 6;
                 if (waveNumber >= 2)
                 {
                     tankSetInWave += tBase * (waveNumber);
+                    winLose.tankCount += tankSetInWave;
                 }
             }
         }

@@ -19,14 +19,16 @@ namespace TowerDefence.notPlayer
         private float zSpeed;
         [SerializeField]
         private float xSpeed;
-       
+
         [SerializeField]
         private GameObject _displayCurrency;
         [SerializeField]
         private Image healthBar;
         [SerializeField]
-        private TowerDefence.Menus.MenuManager menMan;
+        private TowerDefence.Menus.MenuManager menuManager;
 
+        private Menus.WinLose winLose;
+        public int HealthScore { get => (int)health; }
 
         private void MoveCamera()
         {
@@ -46,6 +48,7 @@ namespace TowerDefence.notPlayer
         public void AddMoney(float _addMoney)
         {
             money += _addMoney;
+            winLose.money += _addMoney;
         }
 
         private void SetHealth(float _health)
@@ -64,19 +67,17 @@ namespace TowerDefence.notPlayer
 
         private void PlayerDeath(GameObject deathScreen)
         {
-            if (health == 0)
+            if (health <= 0)
             {
-                Time.timeScale = 0;
-                deathScreen.SetActive(true);
-
-                Debug.LogError("PLAYER HAS DIED CRIES IN BINARY");
+                winLose.Lose();
             }
         }
 
         private void Start()
         {
             health = maxHealth;
-            menMan = FindObjectOfType<TowerDefence.Menus.MenuManager>();
+            menuManager = FindObjectOfType<TowerDefence.Menus.MenuManager>();
+            winLose = FindObjectOfType<Menus.WinLose>();
             Time.timeScale = 1;
         }
 
@@ -86,7 +87,7 @@ namespace TowerDefence.notPlayer
             DisplayCurrency();
             SetHealth(health);
 
-            PlayerDeath(menMan.Panels[4]);
+            PlayerDeath(menuManager.Panels[4]);
         }
     }
 }
