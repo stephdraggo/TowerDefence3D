@@ -126,7 +126,6 @@ namespace TowerDefence.Mechanics.Spawning
         {
             if (waveReady && !inWave)
             {
-                player.endWave = false;
                 localSpawnRate = SpawnRate; //calculate spawn rate for this wave
                 inWave = true;
                 waveTimer = 0;
