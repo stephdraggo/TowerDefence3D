@@ -22,7 +22,7 @@ namespace TowerDefence.notPlayer
         [SerializeField]
         private float xSpeed;
         [SerializeField]
-        private bool endWave;
+        public bool endWave;
        
         [SerializeField]
         private GameObject _displayCurrency;
@@ -131,6 +131,8 @@ namespace TowerDefence.notPlayer
 
         private void Update()
         {
+            TowerDefence.Menus.MenuManager menMan = FindObjectOfType<TowerDefence.Menus.MenuManager>();
+
             MoveCamera();
             DisplayCurrency();
             SetHealth(health);
