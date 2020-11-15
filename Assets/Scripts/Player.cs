@@ -11,6 +11,8 @@ namespace TowerDefence.notPlayer
     {
         [Tooltip("How much money the player has")]
         public float money = 100f;
+        [Tooltip("How much money the player wins at the end of a round")]
+        public float rewardMoney;
         [SerializeField]
         private float health;
         [SerializeField]
@@ -19,9 +21,13 @@ namespace TowerDefence.notPlayer
         private float zSpeed;
         [SerializeField]
         private float xSpeed;
-
+        [SerializeField]
+        private bool endWave;
+       
         [SerializeField]
         private GameObject _displayCurrency;
+        [SerializeField]
+        private Text _displayReward;
         [SerializeField]
         private Image healthBar;
         [SerializeField]
@@ -33,6 +39,48 @@ namespace TowerDefence.notPlayer
         private void MoveCamera()
         {
             transform.Translate(Input.GetAxis("Horizontal") * xSpeed * Time.deltaTime, 0, Input.GetAxis("Vertical") * zSpeed * Time.deltaTime);
+        }
+
+        public void PlayerMoneyReward(float _money)
+        {
+            rewardMoney += money;
+        }
+        public void EndWaveShowReward()
+        {
+            bool endWave1 = endWave == true && health <= 80;
+            bool endWave2 = endWave == true && health <= 40;
+            bool endWave3 = endWave == true && health == 100;
+            bool endWave4 = endWave == true && health < 100;
+
+            if (endWave1)
+            {
+                rewardMoney *= 0.7f;
+                AddMoney(rewardMoney);
+                rewardMoney = 0;
+                endWave = false;
+            }
+            if (endWave2)
+            {
+                rewardMoney *= 0.5f;
+                AddMoney(rewardMoney);
+                rewardMoney = 0;
+                endWave = false;
+            }
+            if (endWave3)
+            {
+                rewardMoney += 100;
+                AddMoney(rewardMoney);
+                rewardMoney = 0;
+                endWave = false;
+            }
+            if (endWave4)
+            {
+                AddMoney(rewardMoney);
+                rewardMoney = 0;
+                endWave = false;
+            }
+
+            _displayReward.text = string.Format("${0}", rewardMoney);
         }
 
         private void DisplayCurrency()
@@ -87,7 +135,8 @@ namespace TowerDefence.notPlayer
             DisplayCurrency();
             SetHealth(health);
 
-            PlayerDeath(menuManager.Panels[4]);
+            PlayerDeath(menMan.Panels[4]);
+            EndWaveShowReward();
         }
     }
 }

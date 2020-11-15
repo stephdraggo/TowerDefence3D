@@ -507,7 +507,7 @@ MonoBehaviour:
 
 '
   cost: 100
-  damage: 1
+  damage: 100
   minRange: 1
   maxRange: 100
   rangeUpgrade: 1
@@ -780,6 +780,26 @@ PrefabInstance:
     - target: {fileID: 7051588683668988940, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859136277950635487, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859136277950635487, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859136277950635487, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859136277950635487, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

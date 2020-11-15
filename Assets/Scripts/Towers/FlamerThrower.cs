@@ -12,7 +12,11 @@ public class FlamerThrower : MonoBehaviour
         if (other.gameObject.GetComponent<Enemy>() != null)
         {
             Debug.Log("enemy");
-            flamer.targets.Add(other.gameObject.GetComponent<Enemy>());
+            if (flamer.targets != null)
+            {
+                flamer.targets.Add(other.gameObject.GetComponent<Enemy>());
+            }
+               
         }
     }
 
@@ -21,7 +25,7 @@ public class FlamerThrower : MonoBehaviour
         if (other.gameObject.GetComponent<Enemy>() != null)
         {
             Debug.Log("enemy Left");
-            if(flamer.targets != null)
+            if(flamer.targets != null && flamer.index < flamer.targets.Count)
             {
                 flamer.targets.RemoveAt(flamer.index);
             }

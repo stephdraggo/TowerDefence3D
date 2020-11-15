@@ -110,6 +110,40 @@ Transform:
   m_Father: {fileID: 7322810121711952423}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2139368722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6376476384568092247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69b08de512131d14eb2d112432681dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerName: Assault Tower
+  description: 'This is the assaultTower
+
+'
+  cost: 50
+  damage: 10
+  minRange: 1
+  maxRange: 5
+  rangeUpgrade: 1
+  fireRate: 0.5
+  maxLevel: 2
+  requiredXp: 5
+  xpScale: 1
+  isFiring: 0
+  target: {fileID: 0}
+  turret: {fileID: 3358339917939486719}
+  bullet: {fileID: 3202497852079919699}
+  barrel: {fileID: 4781137787607339314}
+  towerMaxRange: {fileID: 626047846}
+  towerMinRange: {fileID: 6747552218842523669}
+  lineTime: 0
+  fire: 0
 --- !u!1 &572969470854954558
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,40 +654,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &2139368722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6376476384568092247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69b08de512131d14eb2d112432681dc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerName: Assault Tower
-  description: 'This is the assaultTower
-
-'
-  cost: 50
-  damage: 10
-  minRange: 1
-  maxRange: 5
-  rangeUpgrade: 1
-  fireRate: 0.5
-  maxLevel: 2
-  requiredXp: 5
-  xpScale: 1
-  isFiring: 0
-  target: {fileID: 0}
-  turret: {fileID: 3358339917939486719}
-  bullet: {fileID: 3202497852079919699}
-  barrel: {fileID: 4781137787607339314}
-  towerMaxRange: {fileID: 626047846}
-  towerMinRange: {fileID: 6747552218842523669}
-  lineTime: 0
-  fire: 0
 --- !u!1 &7259144298605451884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,6 +1092,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1d5d2dc0ace684a4888cc1ec8241b750, type: 2}
+    - target: {fileID: 8859136277950635487, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859136277950635487, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859136277950635487, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.022
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859136277950635487, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46, type: 3}
 --- !u!4 &7322810121711952423 stripped

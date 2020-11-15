@@ -133,8 +133,8 @@ MonoBehaviour:
   enemy: {fileID: 0}
   player: {fileID: 0}
   enemyPath: {fileID: 0}
-  healthBarEnemy: {fileID: 0}
-  _heatlhbar: {fileID: 0}
+  healthBarEnemy: {fileID: 8126401322162072730}
+  _heatlhbar: {fileID: 8959861406540420888}
 --- !u!195 &-1092867694861216685
 NavMeshAgent:
   m_ObjectHideFlags: 0
