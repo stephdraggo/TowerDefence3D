@@ -101,7 +101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146445173}
   m_LocalRotation: {x: -0, y: 0.008726558, z: -0, w: 0.999962}
-  m_LocalPosition: {x: 0, y: 1.36, z: 0}
+  m_LocalPosition: {x: 0, y: 1.15, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 8433847466800983475}
@@ -180,7 +180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622469726}
   m_LocalRotation: {x: -0, y: 0.008726558, z: -0, w: 0.999962}
-  m_LocalPosition: {x: 0, y: 1.36, z: 0}
+  m_LocalPosition: {x: 0, y: 1.15, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 8433847466800983475}
@@ -406,6 +406,38 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &1551038809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5253758937649359299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516bbb204dbb638458aca2dee3d08a72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerName: Flame Tower
+  description: 'This is the flameTower
+
+'
+  cost: 20
+  damage: 0.2
+  minRange: 1
+  maxRange: 3.5
+  rangeUpgrade: 1
+  fireRate: 2
+  maxLevel: 3
+  requiredXp: 5
+  xpScale: 1
+  isFiring: 0
+  target: {fileID: 0}
+  targets: []
+  index: 0
+  towerMaxRange: {fileID: 1622469727}
+  towerMinRange: {fileID: 1146445174}
+  turret: {fileID: 1336782025240571672}
 --- !u!1 &3069478021478644786
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,38 +517,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1551038809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5253758937649359299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 516bbb204dbb638458aca2dee3d08a72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerName: Flame Tower
-  description: 'This is the flameTower
-
-'
-  cost: 20
-  damage: 0.2
-  minRange: 1
-  maxRange: 3.5
-  rangeUpgrade: 1
-  fireRate: 2
-  maxLevel: 3
-  requiredXp: 5
-  xpScale: 1
-  isFiring: 0
-  target: {fileID: 0}
-  targets: []
-  index: 0
-  towerMaxRange: {fileID: 1622469727}
-  towerMinRange: {fileID: 1146445174}
-  turret: {fileID: 1336782025240571672}
 --- !u!1 &5645124775861488781
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +541,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5645124775861488781}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.242, z: -0.006}
+  m_LocalPosition: {x: 0, y: 1.032, z: -0.006}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 2980317238279809077}
@@ -580,7 +580,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5771353132554757250}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8433847466800983475}
@@ -875,7 +875,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9003153911528845845}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.21000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5914232739973188022}
@@ -1026,6 +1026,26 @@ PrefabInstance:
     - target: {fileID: 7051588683668988940, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859136277950635487, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859136277950635487, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859136277950635487, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859136277950635487, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
