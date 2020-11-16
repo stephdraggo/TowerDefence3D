@@ -78,14 +78,14 @@ namespace TowerDefence.Mechanics.Spawning
         #region Update
         void Update()
         {
+            if (enemyManager.aliveEnemies.Count <= 0 && !player.endWave)
+            {
+                player.endWave = true;
+            }
+
             #region check if wave ready
             if (!waveReady) //if wave not ready, set up new wave
             {
-                if (enemyManager.aliveEnemies.Count <= 0 && !player.endWave)
-                {
-                    player.endWave = true;
-                }
-
                 if (WaveNumber > TotalWaves) //check win
                 {
                     winLose.Win(); //call win
