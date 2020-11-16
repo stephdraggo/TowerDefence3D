@@ -12,7 +12,10 @@ namespace TowerDefence.Managers
         private GameObject enemyPrefab;
 
         public List<Enemy> aliveEnemies = new List<Enemy>();
-        
+
+        private notPlayer.Player player;
+
+
         /// <summary>
         /// Spawns an Enemy gameObject then adds that enemy to the alive enemies lists
         /// </summary>
@@ -34,7 +37,7 @@ namespace TowerDefence.Managers
         /// </summary>
         /// <param name="_spawner">location on map</param>
         /// <param name="_enemyPrefab">which enemy to spawn</param>
-        public void SpawnEnemy(Transform _spawner,GameObject _enemyPrefab)
+        public void SpawnEnemy(Transform _spawner, GameObject _enemyPrefab)
         {
             // spawns a new enemy
             GameObject newEnemy = Instantiate(_enemyPrefab, _spawner.position, _enemyPrefab.transform.rotation);
@@ -60,7 +63,7 @@ namespace TowerDefence.Managers
                 Destroy(_enemy.gameObject);
                 // removes enemy from list
                 aliveEnemies.RemoveAt(index);
-                
+
             }
         }
 
@@ -107,6 +110,16 @@ namespace TowerDefence.Managers
                 return;
             }
         }
-
+        private void Start()
+        {
+            player = FindObjectOfType<notPlayer.Player>();
+        }
+        private void Update()
+        {
+            if (aliveEnemies.Count <= 0 && !player.endWave)
+            {
+                player.endWave = true;
+            }
+        }
     }
 }

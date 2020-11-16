@@ -23,8 +23,6 @@ namespace TowerDefence.Mechanics.Spawning
         private EnemyManager enemyManager;
 
         private Menus.WinLose winLose;
-
-        private notPlayer.Player player;
         #endregion
 
         #region Properties
@@ -40,7 +38,6 @@ namespace TowerDefence.Mechanics.Spawning
         {
             enemyManager = EnemyManager.instance;
             winLose = FindObjectOfType<Menus.WinLose>();
-            player = FindObjectOfType<notPlayer.Player>();
 
             waveNumber = 0;
             waveReady = false;
@@ -81,8 +78,6 @@ namespace TowerDefence.Mechanics.Spawning
             #region check if wave ready
             if (!waveReady) //if wave not ready, set up new wave
             {
-                player.endWave = true;
-
                 if (WaveNumber > TotalWaves) //check win
                 {
                     winLose.Win(); //call win
