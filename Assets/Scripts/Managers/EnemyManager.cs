@@ -13,7 +13,6 @@ namespace TowerDefence.Managers
 
         public List<Enemy> aliveEnemies = new List<Enemy>();
 
-        private notPlayer.Player player;
 
 
         /// <summary>
@@ -108,17 +107,6 @@ namespace TowerDefence.Managers
             {
                 Destroy(gameObject);
                 return;
-            }
-        }
-        private void Start()
-        {
-            player = FindObjectOfType<notPlayer.Player>();
-        }
-        private void Update()
-        {
-            if (aliveEnemies.Count <= 0 && !player.endWave)
-            {
-                player.endWave = true;
             }
         }
     }
