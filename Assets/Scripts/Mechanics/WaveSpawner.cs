@@ -78,7 +78,7 @@ namespace TowerDefence.Mechanics.Spawning
         #region Update
         void Update()
         {
-            if (enemyManager.aliveEnemies.Count <= 0 && WaveNumber>1)
+            if (EndWave())
             {
                 player.endWave = true;
             }
@@ -257,6 +257,23 @@ namespace TowerDefence.Mechanics.Spawning
                     winLose.tankCount += tankSetInWave;
                 }
             }
+        }
+        #endregion
+
+        #region end wave
+        private bool EndWave()
+        {
+            if(enemyManager.aliveEnemies.Count <= 0)
+            {
+                if(WaveNumber > 1)
+                {
+                    if (waveTimer > lengthOfWave)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
         #endregion
         #endregion
