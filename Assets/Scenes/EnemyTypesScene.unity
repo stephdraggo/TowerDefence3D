@@ -12370,6 +12370,7 @@ MonoBehaviour:
   - {fileID: 1571997795297729093, guid: f6cb82ee5c041204abe0979c4434070b, type: 3}
   - {fileID: 4457590124448002617, guid: 7381dec46b6556c4a9d8852167a61072, type: 3}
   - {fileID: 6248319570690313004, guid: a4c6562613baead4892bc36d2c33c77a, type: 3}
+  count: 0
 --- !u!65 &1050129380
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12438,7 +12439,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050129378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.85, y: 0.09, z: -2.52}
+  m_LocalPosition: {x: 9.85, y: 0.09, z: 21.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -15468,7 +15469,7 @@ PrefabInstance:
     - target: {fileID: 3530596806156581938, guid: f83f6d04dea015144b1d82d98d8fcda8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -54.03992
+      value: -55.022514
       objectReference: {fileID: 0}
     - target: {fileID: 3530596806166862289, guid: f83f6d04dea015144b1d82d98d8fcda8,
         type: 3}
