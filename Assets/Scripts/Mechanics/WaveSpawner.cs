@@ -78,7 +78,7 @@ namespace TowerDefence.Mechanics.Spawning
         #region Update
         void Update()
         {
-            if (enemyManager.aliveEnemies.Count <= 0 && !player.endWave)
+            if (enemyManager.aliveEnemies.Count <= 0 && WaveNumber>1)
             {
                 player.endWave = true;
             }
