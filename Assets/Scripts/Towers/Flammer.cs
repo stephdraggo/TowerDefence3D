@@ -81,7 +81,7 @@ public class Flammer : BaseTower
     /// </summary>
     public void DisplayTowerRange()
     {
-        SetGlobalScale(towerMaxRange.transform, Vector3.one * MaxRange * 2);
+        SetGlobalScale(towerMaxRange.transform, Vector3.one * maxRange * 2);
         SetGlobalScale(towerMinRange.transform, Vector3.one * minRange * 2);
     }
 

@@ -30,10 +30,20 @@ namespace TowerDefence.Managers
         }
 
         #region Variables
+
+        #region Upgrade Variables
+        [SerializeField]
+        private float upgradeRange, upgradeDamage, upgradeFireRate;
+        #endregion
+
+        [SerializeField]
+        public Text[] towerUpgradesText;
         [SerializeField, Tooltip("Displays the clicked on towers description")]
         private Text towerDescription;
         [SerializeField, Tooltip("Displays the clicked on towers name")]
         private Text towerName;
+        [SerializeField]
+        public Button button;
         #region MiscVariables
         [SerializeField, Tooltip("The Towers we want to spawn")]
         private BaseTower[] prefab;
@@ -46,9 +56,56 @@ namespace TowerDefence.Managers
 
         [SerializeField, Tooltip("Used to choose what tower to spawn")]
         private int index;
+
+
+        public UpgradeManager currentTower;
         #endregion
         #endregion
 
+        public void Upgrades(int upgradeNumber)
+        {
+            if (currentTower.tower.rangeUpgrade == 3)
+            {
+                button.interactable = false;
+            }
+
+            // fireRate upgrade
+            if (upgradeNumber == 1)       
+            {
+                if (player.money >= currentTower.fireRateCost)
+                {
+                    player.money -= currentTower.fireRateCost;
+                    currentTower.tower.fireRate -= upgradeFireRate;
+                }
+                
+            }
+
+            // damage upgrade
+            if (upgradeNumber == 2)
+            {
+                if (player.money >= currentTower.damageCost)
+                {
+                    player.money -= currentTower.damageCost;
+                    currentTower.tower.damage += upgradeDamage;
+                }
+                
+            }
+
+            // range upgrade
+            if (upgradeNumber == 3)
+            {                                                                                                                                                         
+                if (player.money >= currentTower.rangeCost)
+                {
+                    player.money -= currentTower.rangeCost;
+                    //currentTower.tower.rangeUpgrade += 1;
+                    currentTower.tower.maxRange += upgradeRange;
+                }
+            }
+
+            upgradeNumber = 0;
+        }
+
+        #region SpawningTower
         /// <summary>
         /// Spawns the selected tower
         /// </summary>
@@ -66,7 +123,9 @@ namespace TowerDefence.Managers
             }
             
         }
+        #endregion
 
+        #region TowerStats
         private void DisplayTowerStats()
         {
             #region Old Code
@@ -88,13 +147,17 @@ namespace TowerDefence.Managers
                 stat.Display();
             }
         }
+        #endregion
 
+        #region TowerSelection
         public void SelectTower(int tower)
         {
             index = tower;
             towerDescription.text = prefab[tower].Description;
             towerName.text = prefab[tower].TowerName;
         }
+        #endregion
+
 
         private void Update()
         {

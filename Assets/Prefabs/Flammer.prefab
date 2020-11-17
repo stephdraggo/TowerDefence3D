@@ -105,7 +105,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 8433847466800983475}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1146445177
 MeshFilter:
@@ -184,7 +184,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 8433847466800983475}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1622469730
 MeshFilter:
@@ -406,6 +406,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!65 &3484444567799534574
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5253758937649359299}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0840282, y: 1.7521117, z: 1.3162851}
+  m_Center: {x: -0.0067710876, y: 0.6089879, z: 0.031589985}
 --- !u!114 &1551038809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,9 +441,6 @@ MonoBehaviour:
   maxRange: 3.5
   rangeUpgrade: 1
   fireRate: 2
-  maxLevel: 3
-  requiredXp: 5
-  xpScale: 1
   isFiring: 0
   target: {fileID: 0}
   targets: []
@@ -438,6 +448,32 @@ MonoBehaviour:
   towerMaxRange: {fileID: 1622469727}
   towerMinRange: {fileID: 1146445174}
   turret: {fileID: 1336782025240571672}
+--- !u!114 &1137174141450345423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5253758937649359299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa0058d3e62050641bf1560c92f5f917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerName: {fileID: 0}
+  fireRate: {fileID: 0}
+  range: {fileID: 0}
+  damage: {fileID: 0}
+  fireRateCost: 5
+  rangeCost: 2
+  damageCost: 1
+  _towerMaxRange: {fileID: 1622469726}
+  _towerMinRange: {fileID: 1146445173}
+  mouseOverObject: 0
+  menuMan: {fileID: 0}
+  tMan: {fileID: 0}
+  tower: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &3069478021478644786
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,68 +588,8 @@ Transform:
   - {fileID: 6404843323099369749}
   - {fileID: 459159660}
   m_Father: {fileID: 8433847466800983475}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5771353132554757250
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5737381986059266238}
-  - component: {fileID: 6667903504837312079}
-  - component: {fileID: 8067680725312528888}
-  m_Layer: 0
-  m_Name: ShowRange
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5737381986059266238
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5771353132554757250}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.99, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8433847466800983475}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6667903504837312079
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5771353132554757250}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0840282, y: 2.0680075, z: 1.3162851}
-  m_Center: {x: -0.0067710876, y: -0.5340028, z: 0.031589985}
---- !u!114 &8067680725312528888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5771353132554757250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0058d3e62050641bf1560c92f5f917, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _towerMaxRange: {fileID: 1622469726}
-  _towerMinRange: {fileID: 1146445173}
-  mouseOverObject: 0
 --- !u!1 &7024636789828525746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,7 +1007,7 @@ PrefabInstance:
     - target: {fileID: 8859136277950635487, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8859136277950635487, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
         type: 3}
@@ -1050,15 +1026,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46, type: 3}
---- !u!1 &5253758937649359299 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6646843494694297724, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
-    type: 3}
-  m_PrefabInstance: {fileID: 1501753775566686655}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8433847466800983475 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7051588683668988940, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
+    type: 3}
+  m_PrefabInstance: {fileID: 1501753775566686655}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5253758937649359299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6646843494694297724, guid: 9b7ad473b8f6f4343a9a1cf8c8877a46,
     type: 3}
   m_PrefabInstance: {fileID: 1501753775566686655}
   m_PrefabAsset: {fileID: 0}
