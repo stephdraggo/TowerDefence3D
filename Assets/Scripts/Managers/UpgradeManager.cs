@@ -2,17 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangeManager : MonoBehaviour
+public class UpgradeManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject _towerMaxRange, _towerMinRange;
     [SerializeField]
     private bool mouseOverObject = false;
+    [SerializeField]
+    private TowerDefence.Menus.MenuManager menuMan;
+
+
+    private void Start()
+    {
+        menuMan = FindObjectOfType<TowerDefence.Menus.MenuManager>();
+    }
 
     private void OnMouseUpAsButton()
     {
+        
         _towerMaxRange.SetActive(true);
         _towerMinRange.SetActive(true);
+        menuMan.SidePanels[0].SetActive(true);
         mouseOverObject = true;       
     }
 

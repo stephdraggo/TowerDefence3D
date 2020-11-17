@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public class EnemyDeath : UnityEvent<Enemy> {  }
     #region Properties
     public float XP { get { return xp; }  }
-    public float Money { get { return money; } }
+    //public float Money { get { return money; } }
     public float Speed { get => speed; }
     #endregion
 
@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
         currentHealth -= _damage;
         if (currentHealth <= 0)
         {
-            player.PlayerMoneyReward(Money);
+            player.PlayerMoneyReward(money);
             Die();
             return true;
         }
