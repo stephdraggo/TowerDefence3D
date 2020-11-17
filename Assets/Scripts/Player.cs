@@ -43,7 +43,7 @@ namespace TowerDefence.notPlayer
 
         public void PlayerMoneyReward(float _money)
         {
-            rewardMoney += money;
+            rewardMoney += _money;
         }
         public void EndWaveShowReward()
         {
@@ -80,12 +80,13 @@ namespace TowerDefence.notPlayer
                 endWave = false;
             }
 
-            _displayReward.text = string.Format("${0}", rewardMoney);
+            
         }
 
         private void DisplayCurrency()
         {
             _displayCurrency.GetComponent<Text>().text = "$" + money;
+            _displayReward.text = string.Format("${0}", rewardMoney);
         }
 
         public void PurchaseTower(int _towerCost)

@@ -20,6 +20,7 @@ namespace TowerDefence.Mechanics.Spawning
 
         private float spawnRateTimer = 0, waveTimer = 0, lengthOfWave, localSpawnRate, waveLengthBase;
 
+        [SerializeField]
         private int count;
 
         private EnemyManager enemyManager;
@@ -82,6 +83,7 @@ namespace TowerDefence.Mechanics.Spawning
         void Update()
         {
             WaveEnd();
+           
 
             #region check if wave ready
             if (!waveReady) //if wave not ready, set up new wave
@@ -115,8 +117,6 @@ namespace TowerDefence.Mechanics.Spawning
                 }
             }
             #endregion
-
-            
         }
         #endregion
 
@@ -167,11 +167,13 @@ namespace TowerDefence.Mechanics.Spawning
                     inWave = false; //end current wave
                     waveReady = false; //prepare next wave
                 }
+                
             }
             else
             {
                 spawnRateTimer += Time.deltaTime;
             }
+
         }
         #endregion
 
@@ -264,12 +266,18 @@ namespace TowerDefence.Mechanics.Spawning
         #region End Wave
         private void WaveEnd()
         {
-            bool waveEnd = !inWave && !player.endWave&&count==1;
+            bool waveEnd = !inWave && !player.endWave;
+
             if (waveEnd)
             {
-                player.endWave = true;
-                player.EndWaveShowReward();
-                count = 0;
+                if (enemyManager.aliveEnemies.Count <= 0 && count == 1)
+                {
+                    player.endWave = true;
+                    player.EndWaveShowReward();
+                    count = 0;
+                }
+
+
             }
         }
         #endregion

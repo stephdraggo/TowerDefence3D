@@ -1,15 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeManager : MonoBehaviour
 {
+    [Header("Upgrade stuff")]
+    [SerializeField]
+    private Text fireRate;
+    [SerializeField]
+    private Text range, damage;
+
+
     [SerializeField]
     private GameObject _towerMaxRange, _towerMinRange;
     [SerializeField]
     private bool mouseOverObject = false;
     [SerializeField]
     private TowerDefence.Menus.MenuManager menuMan;
+
+    
 
 
     private void Start()
