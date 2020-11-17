@@ -20,6 +20,8 @@ namespace TowerDefence.Mechanics.Spawning
 
         private float spawnRateTimer = 0, waveTimer = 0, lengthOfWave, localSpawnRate, waveLengthBase;
 
+        private int count;
+
         private EnemyManager enemyManager;
 
         private Menus.WinLose winLose;
@@ -44,6 +46,7 @@ namespace TowerDefence.Mechanics.Spawning
 
             waveNumber = 0;
             waveReady = false;
+            count = 0;
 
             if (GameManager.gameDifficulty == GameDifficulty.None) //set default game difficulty to easy
             {
@@ -78,10 +81,7 @@ namespace TowerDefence.Mechanics.Spawning
         #region Update
         void Update()
         {
-            if (EndWave())
-            {
-                player.endWave = true;
-            }
+            WaveEnd();
 
             #region check if wave ready
             if (!waveReady) //if wave not ready, set up new wave
@@ -133,6 +133,7 @@ namespace TowerDefence.Mechanics.Spawning
                 inWave = true;
                 waveTimer = 0;
                 lengthOfWave = WaveLength;
+                count = 1;
             }
         }
         #endregion
@@ -260,20 +261,16 @@ namespace TowerDefence.Mechanics.Spawning
         }
         #endregion
 
-        #region end wave
-        private bool EndWave()
+        #region End Wave
+        private void WaveEnd()
         {
-            if(enemyManager.aliveEnemies.Count <= 0)
+            bool waveEnd = !inWave && !player.endWave&&count==1;
+            if (waveEnd)
             {
-                if(WaveNumber > 1)
-                {
-                    if (waveTimer > lengthOfWave)
-                    {
-                        return true;
-                    }
-                }
+                player.endWave = true;
+                player.EndWaveShowReward();
+                count = 0;
             }
-            return false;
         }
         #endregion
         #endregion

@@ -138,7 +138,7 @@ namespace TowerDefence.notPlayer
             SetHealth(health);
 
             PlayerDeath(menMan.Panels[4]);
-            EndWaveShowReward();
+            //EndWaveShowReward();
         }
     }
 }

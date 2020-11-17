@@ -8,7 +8,6 @@ namespace TowerDefence.Managers
     public class GameManager : MonoBehaviour
     {
         public static GameDifficulty gameDifficulty;
-
         
     }
 }
