@@ -31,6 +31,7 @@ namespace TowerDefence.Managers
             // adds the spawned enemy to the alive enemy list
             aliveEnemies.Add(newEnemy.GetComponent<Enemy>());
         }
+
         /// <summary>
         /// spawns enemy of a given type and adds to list
         /// </summary>

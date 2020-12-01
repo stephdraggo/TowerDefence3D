@@ -18,6 +18,11 @@ public class AssualtTower : BaseTower
     private Transform towerMinRange;
 
     [SerializeField]
+    private GameObject muzzleLeft, muzzleRight;
+    [SerializeField]
+    private AudioSource bam;
+
+    [SerializeField]
     private float lineTime;
     private float maxLineTime = 0.2f;
 
@@ -27,7 +32,7 @@ public class AssualtTower : BaseTower
     private void AimAndFire()
     {
         // gets the distance and direction of the target
-        //Vector3 lerpthis = 
+        //Vector3 lerpthis
         MathUtils.DistanceAndDirection(out float _distance, out Vector3 direction, turret, TargetedEnemy.transform);
         // rotates the turret to look at the direction of the target
 
@@ -38,9 +43,14 @@ public class AssualtTower : BaseTower
         if (currentTime >= fireRate)
         {
             bullet.positionCount = 0;
+            muzzleLeft.SetActive(false);
+            muzzleRight.SetActive(false);
         }
 
         RenderBullet(barrel);
+        bam.Play();
+        muzzleLeft.SetActive(true);
+        muzzleRight.SetActive(true);
     }
 
 
@@ -61,6 +71,8 @@ public class AssualtTower : BaseTower
         if (isFiring == false)
         {
             bullet.positionCount = 0;
+            muzzleLeft.SetActive(false);
+            muzzleRight.SetActive(false);
         }
     }
 
